@@ -9,14 +9,11 @@ RUN apt-get update && apt-get install -y \
     git \
     python3-pip \
     python3-dev \
+    python3-numpy \
+    python3-pandas \
+    python3-scipy \
+    python3-matplotlib \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Python dependencies
-RUN pip3 install \
-    numpy \
-    pandas \
-    scipy \
-    matplotlib
 
 # Create and set up the ROS 2 workspace
 WORKDIR /ros2_ws
@@ -25,7 +22,7 @@ RUN mkdir -p /ros2_ws/src
 # Clone the repositories
 WORKDIR /ros2_ws/src
 RUN git clone https://github.com/ICRA-2024/norlab-ulaval_DRIVE.git && \
-    git clone https://github.com/norlab-ulaval/norlab_controllers_msgs.git
+    git clone https://github.com/norlab-ulaval/norlab_controllers_ros.git
 
 # Install ROS dependencies using rosdep
 WORKDIR /ros2_ws
