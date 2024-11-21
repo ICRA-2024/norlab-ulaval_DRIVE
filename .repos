@@ -1,0 +1,5 @@
+repositories:
+  vcstool:
+    type: git
+    url: https://github.com/ICRA-2024/norlab_controllers_ros
+    version: humble

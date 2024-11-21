@@ -1,0 +1,14 @@
+on: push
+jobs:
+  docker-ros:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: ika-rwth-aachen/docker-ros@v1.6.1
+        with:
+          base-image: rwthika/ros2:humble-desktop-full-v24.11
+          command: bash
+          target: dev,run
